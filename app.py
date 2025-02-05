@@ -1,7 +1,23 @@
+import logging
 import os
+import psutil
+import sys
 from flask import Flask, render_template, request, send_from_directory, abort
 
-app = Flask(__name__)
+# Define base_path to point to the current working directory
+base_path = os.getcwd()
+
+# Now you can use base_path to set the template folder
+template_folder = os.path.join(base_path, 'templates')
+
+app = Flask(__name__, template_folder=os.path.join(base_path, 'templates'))
+
+# Force logs to flush immediately
+logging.basicConfig(level=logging.DEBUG, format="%(message)s", handlers=[logging.StreamHandler(sys.stdout)])
+
+@app.before_request
+def flush_logs():
+    sys.stdout.flush()
 
 # Automatically set the uploads folder relative to where the script is run
 BASE_DIR = os.getcwd()  # Current working directory
@@ -40,5 +56,22 @@ def download_file(filename):
     except FileNotFoundError:
         abort(404)
 
+def is_flask_running():
+    # Check if Flask is already running using the process name and PID
+    current_pid = os.getpid()
+    for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
+        if proc.info['name'] == 'python.exe' and proc.info['pid'] != current_pid:
+            try:
+                if 'flask' in proc.info['cmdline']:
+                    return True
+            except psutil.NoSuchProcess:
+                pass
+    return False
+
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0')
+    # Check if Flask is already running before starting a new instance
+    if not is_flask_running():
+        app.logger.info("Starting Flask app...")
+        app.run(debug=True, host='0.0.0.0', use_reloader=False)  # Disable reloader to prevent multiple instances
+    else:
+        print("Flask app is already running.")

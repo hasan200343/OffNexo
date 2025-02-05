@@ -2,19 +2,16 @@
 
 
 a = Analysis(
-    ['app.py'],
+    ['app_gui.py', 'app.py'],
     pathex=[],
     binaries=[],
-    datas=[
-        ('templates', 'templates'),  # Include templates folder
-        ('uploads', 'uploads'),      # Include uploads folder
-    ],
+    datas=[('templates', 'templates')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
     excludes=[],
-    noarchive=False,
+    noarchive=True,
     optimize=0,
 )
 pyz = PYZ(a.pure)
@@ -24,15 +21,15 @@ exe = EXE(
     a.scripts,
     a.binaries,
     a.datas,
-    [],
+    [('v', None, 'OPTION')],
     name='OFFNexo',
-    debug=False,
+    debug=True,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
     upx_exclude=[],
     runtime_tmpdir=None,
-    console=True,
+    console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
