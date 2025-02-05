@@ -2,11 +2,11 @@
 **A simple file transfer utility using your Local Network though your browser on PC and Phone.**
 
 # To use it:-
-> Download the whole **"Source code.zip"** from here - https://github.com/hasan200343/OffNexo/releases.
+> Download the **"OFFNexo.rar"** file from here - https://github.com/hasan200343/OffNexo/releases.
 
-> After this, extract the file to where you want. Navigate to this path - ".../OffNexo-App/build/exe.win-amd64-3.12"
+> Extract the file to where you want. Open the Folder and you'll find **"OFFNexo.exe"**.
 
-> After that double click on the "OFFNexo.exe", if windows prompts it's dangerous, click on "Run Anyways", I'm not into your personal stuffs so don't worry about that.
+> Double click on the **"OFFNexo.exe"**, if windows prompts it's dangerous, click on "Run Anyways", I'm not into your personal stuffs so don't worry about that.
 
 > Ater that click on **"Start OFFNexo"**, give network permissions.
 
