@@ -1,8 +1,8 @@
 # OffNexo
-**A simple file transfer utility using your Local Network though your browser on PC and Phone.**
+**A simple offline file transfer utility using your Local Network though your browser on PC and Phone. It doesn't require internet but only your WiFi or Hotspot.**
 
 # To use it:-
-> Download the **"OFFNexo.rar"** file from here - https://github.com/hasan200343/OffNexo/releases.
+> Download the **"OFFNexo.rar"** file from [here](https://github.com/hasan200343/OffNexo/releases).
 
 > Extract the file to where you want. Open the Folder and you'll find **"OFFNexo.exe"**.
 
@@ -27,3 +27,8 @@
 >> If you have any suggestions regarding the app feel free to contact and share me on **hasanrazakhan89@outlook.com** or you can also DM me on Discord at - **redarabian**
 
 > It's an open source unsigned app so it can be added as a virus by your Anti Virus software (if you use any), and if you encounter this problem, just go to your anti virus history and restore it or disbale your antivirus while you are using it.
+
+
+
+
+
